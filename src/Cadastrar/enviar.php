@@ -19,7 +19,7 @@ if($email == 'email') {
 
 	/* SENÃO HOUVER NENHUM ERRO, REALIZADO A GRAVAÇÃO NO BANCO DE DADOS */
 	if($erro == 0) {
-		$conn = new mysqli('localhost', 'root', '', 'users');
+		$conn = new mysqli('localhost', 'root', '');
 		if ($conn->connect_error) {
 			die('Falha ao estabelecer uma conexão: '.$conn->connect_error);
 		} else {
@@ -40,10 +40,10 @@ if($email == 'email') {
 			
 			$tabela = $conn->query('SHOW TABLES LIKE \'user_data\'');
 			if($tabela->num_rows == 0) {
-				$conn->query('CREATE table user_data(id INT(11) AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL,cpf VARCHAR(255), estadocivil VARCHAR(255) NOT NULL, genero VARCHAR(10) NOT NULL, observacao VARCHAR(255) NOT NULL, PRIMARY KEY (id));');
+				$conn->query('CREATE table user_data(id INT(11) AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, telefone VARCHAR(255), cpf VARCHAR(255), estadocivil VARCHAR(255) NOT NULL, genero VARCHAR(10) NOT NULL, observacao VARCHAR(255) NOT NULL, PRIMARY KEY (id));');
 			}
 			
-			$sql = "INSERT INTO user_data(name, email, cpf, estadocivil, genero, observacao ) VALUES('$nome', '$email' , '$cpf' , '$estadoCivil' , '$genero' ,'$observacao')";
+			$sql = "INSERT INTO user_data(name, email, telefone, cpf, estadocivil, genero, observacao ) VALUES('$nome', '$email' , '$telefone', '$cpf' , '$estadoCivil' , '$genero' ,'$observacao')";
 
 			if ($conn->query($sql) === TRUE) {
 				echo "New record created successfully";
