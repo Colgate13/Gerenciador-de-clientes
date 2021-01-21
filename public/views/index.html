@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <title>Formulário</title>
+</head>
+<body>
+    <div class="form-style-5">
+        <form id="cadastro" method="post" action="/src/Cadastrar/enviar.php" method="POST">
+        <fieldset>
+        <legend> Cadastro De Cliente</legend>
+        <input required type="text" name="nome" id="nome" placeholder="Nome: ">
+        <input required type="email" name="email" id="email" placeholder="Email: ">
+        <input required type="text" name="telefone" id="telefone" placeholder="Telefone: ">
+        <input required class="telefone" type="text" name="cpf"  placeholder="CPF: " onkeypress="formatar(this,'000.000.000-00')" id="cpf">
+        <input required type="text" name="estadocivil" id="estadocivil" placeholder="Estado Cívil">
+        </fieldset>
+        
+        <label>Genero</label>
+        <select required name="genero" >
+        <option> </option>
+        <option name="genero" value="Homem">Homem</option>
+        <option name="genero" value="Mulher">Mulher</option>
+        </select>      
+        </fieldset>
+
+        <fieldset>
+
+        <textarea name="observacao" id="observacao" placeholder="Observação: "></textarea>
+        </fieldset>
+         <input id="btnEnviar"  type="submit" name="BTEnvia" value="Cadastrar">
+       <!--  <button   type="submit" id="btnEnviar" name="BTEnvia" >Salvar</button> -->
+        </form>
+        </div>
+        
+<script>
+    function formatar(src, mask)
+    {
+        var i = src.value.length;
+        var saida = mask.substring(0,1);
+        var texto = mask.substring(i)
+        if (texto.substring(0,1) != saida)
+        {
+            src.value += texto.substring(0,1);
+        }
+    }
+   
+</script>
+
+</body>
+</html>
