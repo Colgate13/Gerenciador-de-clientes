@@ -23,5 +23,7 @@
 
 <h1> COMO USAR? </h1>
 1 - Install Xammp;
-2 - Ir no diretorio do xammp, na pasta htdocs, clocar o repositorio para essa pasta, <h3> git clone https://github.com/Colgate13/Gerenciador-de-clientes  </h3>
-3 - Apertar o botão "start" para o apache e para o mysql no xammp
+2 - Ir no diretorio do xammp, na pasta htdocs, clocar o repositorio para essa pasta
+3 - Na pasta htdocs <h3> git clone https://github.com/Colgate13/Gerenciador-de-clientes  </h3>
+4 - Apertar o botão "start" para o apache e para o mysql no xammp
+<h3> Pronto para usar, vai para localhost:80 ou para o localhost:PORTA QUE VOCÊ DEFINIU </h3>
