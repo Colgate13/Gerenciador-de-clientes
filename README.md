@@ -2,7 +2,7 @@
 <h1> Cadastrar clientes, com nome, email, cpf, telefone, sexo e observação, cria ou grava no banco de dados e monstra na em uma tabela </h1>
 
 
-# Pagina inicial #
+# Pagina inicial 
 <img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/home.png"></img>
 #Botão "Cadastrar clientes" clidado
 <img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/cadastro-em-branco.png"></img>
@@ -11,7 +11,7 @@
 
 <img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/cadastro-preenchido.png"></img>
 
-# Botão "Cadastrar" clicado, pagina carrega um pouco, grava no banco de dados e redireciona para pagina de listagem de clientes 
+<h1> Botão "Cadastrar" clicado, pagina carrega um pouco, grava no banco de dados e redireciona para pagina de listagem de clientes  </h1>
 <img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/lista1.png"></img>
 
 <h1> Cadastrei varias vezes agora para poder monstrar como ficaria </h1>
