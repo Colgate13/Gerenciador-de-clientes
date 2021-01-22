@@ -3,7 +3,7 @@
 
 
 # Pagina inicial 
-<img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/home.png"></img>
+<img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/home1.png"></img>
 # Botão "Cadastrar clientes" clidado
 <img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/cadastro-em-branco.png"></img>
 
@@ -12,14 +12,20 @@
 <img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/cadastro-preenchido.png"></img>
 
 <h1> Botão "Cadastrar" clicado, pagina carrega um pouco, grava no banco de dados e redireciona para pagina de listagem de clientes  </h1>
-<img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/lista1.png"></img>
+<img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/lista4.png"></img>
 
 <h1> Cadastrei varias vezes agora para poder monstrar como ficaria </h1>
-<img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/lista2.png"></img>
+<img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/lista5.png"></img>
 
-<h1> Apertei o botão excluir, ele exclui pelo ID, vai excluir e recarregar a pagina </h1>
+<h1> Botão editar </h1>
 
-<img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/lista3.png"></img>
+<img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/edição.png"></img>
+
+<h1>Lista editada</h1>
+
+<img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/lista-editada.png"></img>
+
+<h4> Botão excluir funciona </h4>
 
 <h1> COMO USAR? </h1>
 1 - Install Xammp;
