@@ -4,7 +4,7 @@
 
 # Pagina inicial 
 <img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/home.png"></img>
-#Botão "Cadastrar clientes" clidado
+# Botão "Cadastrar clientes" clidado
 <img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/cadastro-em-branco.png"></img>
 
 <h1> Cadastrando um cliente de teste </h1>
