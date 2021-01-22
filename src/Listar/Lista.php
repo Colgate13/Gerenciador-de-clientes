@@ -4,22 +4,23 @@ include("conexao.php"); // caminho do seu arquivo de conexão ao banco de dados 
 
 <!DOCTYPE html> 
   <html> 
+  <link rel="stylesheet" type="text/css" href="/public/css/lista.css" />
     <head> 
       <meta charset="UTF-8"> 
       <title>Tutorial</title> 
     </head> 
     <body> 
-      <table border="1"> 
+      <table border="1" id="customers"> 
         <tr> 
-          <td>ID</td>
-          <td>Nome</td>
-          <td>E-mail</td>
-          <td>Telefone</td>
-          <td>CPF</td>
-          <td>Estado Cívil</td>
-          <td>Gênero</td>
-          <td>Observação</td>
-          <td>Ações</td>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+          <th>CPF</th>
+          <th>Estado Cívil</th>
+          <th>Gênero</th>
+          <th>Observação</th>
+          <th>Ações</th>
 
         </tr> 
         <?php while($dado = $con->fetch_array()) { ?> 
