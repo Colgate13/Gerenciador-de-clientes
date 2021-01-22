@@ -3,4 +3,4 @@
 
 
 # Pagina inicial 
-<img src="https://github.com/Colgate13/Gerenciador-de-clientes/img-README/home.png"></img>
+<img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/home.png"></img>
