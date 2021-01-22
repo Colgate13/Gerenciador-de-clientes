@@ -21,4 +21,7 @@
 
 <img src="https://github.com/Colgate13/Gerenciador-de-clientes/blob/master/img-README/lista3.png"></img>
 
-
+<h1> COMO USAR? </h1>
+1 - Install Xammp;
+2 - Ir no diretorio do xammp, na pasta htdocs, clocar o repositorio para essa pasta, <h3> git clone https://github.com/Colgate13/Gerenciador-de-clientes  </h3>
+3 - Apertar o botão "start" para o apache e para o mysql no xammp
