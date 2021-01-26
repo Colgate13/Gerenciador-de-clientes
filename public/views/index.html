@@ -11,34 +11,53 @@
     </head>
 <body>
     <div class="form-style-5">
-        <form id="cadastro" method="post" action="/src/Cadastrar/enviar.php" method="POST">
+        <form id="cadastro" method="post" action="/src/Cadastrar/enviar.php" method="POST" onsubmit="return check_form()" onsubmit="return VerificaCPF()">
         <fieldset>
         <legend> Cadastro De Cliente</legend>
-        <input required type="text" name="nome" id="nome" placeholder="Nome: ">
-        <input required type="email" name="email" id="email" placeholder="Email: ">
-        <input required type="text" name="telefone" id="telefone" placeholder="Telefone:" class="telefone">
-        <input required type="text" name="cpf"  placeholder="CPF: " onkeypress="formatar(this,'000.000.000-00')" id="cpf">
-        <input required type="text" name="estadocivil" id="estadocivil" placeholder="Estado Cívil">
-        </fieldset>
+        <label>Nome</label>
+        <input  type="text" class="required" name="nome" id="nome" placeholder="Nome: ">
+            
+        <label>Email</label>
+        <input  type="email" class="required"  name="email" id="email" placeholder="Email: ">
         
-        <label>Genero</label>
-        <select required name="genero" >
-        <option> </option>
-        <option name="genero" value="Homem">Homem</option>
-        <option name="genero" value="Mulher">Mulher</option>
-        </select>      
+        <label>telefone</label>
+        <input  type="text" class="required"  name="telefone" id="telefone" placeholder="Telefone:" class="telefone">
+        
+        <label>CPF</label>
+        <input  type="text" class="required" name="cpf"  placeholder="CPF: " onkeypress="formatar(this,'000.000.000-00')" id="cpf">
+    
+        <label>Estado Cívil</label>   
+        <select  name="estadocivil" >
+            <option selected disabled>Selecione</option>
+            <option name="estadocivil" value="Solteiro(a)">Solteiro(a)</option>
+            <option name="estadocivil" value="Casado(a)">Casado(a)</option>
+            <option name="estadocivil" value="Viuvo(a)">Viuvo(a)</option>
+            <option name="estadocivil" value="Divorciado(a)">Divorciado(a)</option>
+            <option name="estadocivil" value="Separado Judicialmente">Separado Judicialmente</option>
+        </fieldset>
+       </select>     
+       <input  type="radio" class="required"  id="mulher" name="genero" value="Homem">
+       <label for="homem">Homem</label><br>
+       <input  type="radio" class="required" id="mulher" name="genero" value="Mulher">
+       <label for="mulher">Mulher</label><br>
+       <input  type="radio" class="required"  id="outro" name="genero" value="outro">
+       <label for="outro">Outro</label>   
         </fieldset>
 
         <fieldset>
-
-        <textarea name="observacao" id="observacao" placeholder="Observação: "></textarea>
+        <label>Observação</label>   
+        <textarea name="observacao"  id="observacao" placeholder="Observação: "></textarea>
         </fieldset>
-         <input id="btnEnviar"  type="submit" name="BTEnvia" value="Cadastrar">
-       <!--  <button   type="submit" id="btnEnviar" name="BTEnvia" >Salvar</button> -->
+          <input  id="btnEnviar"  type="submit" name="BTEnvia" value="Cadastrar">
+        <!--  <button   type="submit" id="btnEnviar" name="BTEnvia" >Salvar</button>  -->
         </form>
         </div>
         
 <script>
+
+
+
+
     function formatar(src, mask)
     {
         var i = src.value.length;
@@ -66,6 +85,70 @@
         });
         
 </script>
+
+<script>
+    function check_form(){
+    var inputs = document.getElementsByClassName('required');
+    var len = inputs.length;
+    var valid = true;
+    for(var i=0; i < len; i++){
+        if (!inputs[i].value){ valid = false; inputs[i].style.backgroundColor = 'red'; }
+    }
+    if (!valid){
+
+        alert('Por favor preencha todos os campos.');     
+        return false;
+    } else { return true; }
+    
+}
+
+        function VerificaCPF(strCpf) {
+
+        var soma;
+        var resto;
+        soma = 0;
+        if (strCpf == "000.000.000-00") {
+            return false;
+        }
+
+        for (i = 1; i <= 9; i++) {
+            soma = soma + parseInt(strCpf.substring(i - 1, i)) * (11 - i);
+        }
+
+        resto = soma % 11;
+
+        if (resto == 10 || resto == 11 || resto < 2) {
+            resto = 0;
+        } else {
+            resto = 11 - resto;
+        }
+
+        if (resto != parseInt(strCpf.substring(9, 10))) {
+            return false;
+        }
+
+        soma = 0;
+
+        for (i = 1; i <= 10; i++) {
+            soma = soma + parseInt(strCpf.substring(i - 1, i)) * (12 - i);
+        }
+        resto = soma % 11;
+
+        if (resto == 10 || resto == 11 || resto < 2) {
+            resto = 0;
+        } else {
+            resto = 11 - resto;
+        }
+
+        if (resto != parseInt(strCpf.substring(10, 11))) {
+            return false;
+        }
+
+        return true;
+        }
+
+
+    </script>
 
 </body>
 </html>

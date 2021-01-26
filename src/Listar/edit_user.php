@@ -1,21 +1,10 @@
 <?php 
 
+include("../utils/conection.php"); // caminho do seu arquivo de conexão ao banco de dados $consulta = "SELECT * FROM usuario"; $con = $mysqli->query($consulta) or die($mysqli->error); 
 $var = $_GET["id"];
-$connection = new mysqli('localhost', 'root', '', 'users');
-         if ($connection->connect_error) {
-                 die('Falha ao estabelecer uma conexão: '.$connection->connect_error);
-         } else {
-         
-  /*   $tabela = $conn->query('SHOW TABLES LIKE \'user_data\'');
-                 if($tabela->num_rows == 0) {
-                         $conn->query('CREATE table user_data(id INT(11) AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL,cpf VARCHAR(255), estadocivil VARCHAR(255) NOT NULL, genero VARCHAR(10) NOT NULL, observacao VARCHAR(255) NOT NULL, PRIMARY KEY (id));');
-                 }*/
-     $tabela = $connection->query('SHOW TABLES LIKE \'user_data\'');
 
-     $sql = "select * from user_data where id  =  $var"; 
-     $conn = $connection->query($sql);         
- }
-
+$sql = "select * from user_data where id  =  $var"; 
+$conn = $connection->query($sql);      
 ?>  
                          
         
@@ -61,7 +50,7 @@ $connection = new mysqli('localhost', 'root', '', 'users');
           <div class="form-style-5">
           <form id="cadastro" method="post" action="/src/Listar/editar.php" method="POST">
           <fieldset>
-          <legend> Cadastro De Cliente</legend>
+          <legend>Editar Cliente</legend>
           <label>Nome </label>        
           <input required type="text" name="nome" id="nome" value="<?php echo $data_this['name']; ?>" >
 
@@ -103,7 +92,7 @@ $connection = new mysqli('localhost', 'root', '', 'users');
            <label>Id</label>
            <input readonly type="text" name="id" id="nome" value="<?php echo $var ?>" >
            
-           <input id="btnEnviar"  type="submit" name="BTEnvia" value="Cadastrar">
+           <input id="btnEnviar"  type="submit" name="BTEnvia" value="Salvar">
         </form>
         </div>
 
