@@ -17,6 +17,46 @@ if($email == 'email') {
     }
 
 } 
+
+				function validaCPF($cpf_this) {
+				
+					// Extrai somente os números
+					$cpf_this = preg_replace( '/[^0-9]/is', '', $cpf_this );
+					
+					// Verifica se foi informado todos os digitos corretamente
+					if (strlen($cpf_this) != 11) {
+						return false;
+					}
+
+					// Verifica se foi informada uma sequência de digitos repetidos. Ex: 111.111.111-11
+					if (preg_match('/(\d)\1{10}/', $cpf_this)) {
+						return false;
+					}
+
+					// Faz o calculo para validar o CPF
+					for ($t = 9; $t < 11; $t++) {
+						for ($d = 0, $c = 0; $c < $t; $c++) {
+							$d += $cpf_this[$c] * (($t + 1) - $c);
+						}
+						$d = ((10 * $d) % 11) % 10;
+						if ($cpf_this[$c] != $d) {
+							return false;
+						}
+					}
+					return true;
+
+				}
+
+			$validar_cpf = validaCPF($cpf);
+
+				if(!$validar_cpf)
+				{
+					echo "<script>alert('Ocorreu um erro. CPF INVALIDO!');</script>";
+					echo "Cade o cpf VALIDO!";
+					header('Location: /public/views/index.html');
+					exit();
+				}
+
 			//Primeiro retira os espaços do começo e do final.
 			$cpf = trim($cpf);
 			//Substitui o ponto por nada
