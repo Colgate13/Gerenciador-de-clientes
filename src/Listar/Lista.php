@@ -42,8 +42,9 @@ include("../utils/conection.php"); // caminho do seu arquivo de conexão ao banc
           <td><?php echo $dado['observacao']; ?></td> 
 
           <td> 
-            <a href="edit_user.php?id=<?php echo $dado['id']; ?>">Editar</a> 
-            <a href="delet_user.php?id=<?php echo $dado['id']; ?>">Excluir</a> 
+            <a href="edit_user.php?id=<?php echo $dado['id']; ?>">Editar |</a> 
+            <a href="delet_user.php?id=<?php echo $dado['id']; ?>">Excluir |</a> 
+            <a href="/index.html"> Home </a>
           </td> 
         </tr> 
       </tbody>

@@ -77,7 +77,8 @@ if($email == 'email') {
 			  }
 			  
           //  echo $nome;
-          //  echo $email; 
+		  //  echo $email; 
+		  //  echo $telefone;
           //  echo $cpf ; 
           //  echo $estadoCivil ; 
           //  echo $genero ;

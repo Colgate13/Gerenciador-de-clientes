@@ -21,27 +21,26 @@
         <input  type="email" class="required"  name="email" id="email" placeholder="Email: ">
         
         <label>telefone</label>
-        <input  type="text" class="required"  name="telefone" id="telefone" placeholder="Telefone:" class="telefone">
-        
+        <input  type="text" class="telefone required"  name="telefone" id="telefone" placeholder="Telefone:" class="telefone">
         <label>CPF</label>
         <input  type="text" class="required" name="cpf"  placeholder="CPF: " onkeypress="formatar(this,'000.000.000-00')" id="cpf">
     
         <label>Estado Cívil</label>   
-        <select  name="estadocivil" >
-            <option selected disabled>Selecione</option>
+        <select  class="required"  name="estadocivil" >
+            <option selected disabled value="">Selecione</option>
             <option name="estadocivil" value="Solteiro(a)">Solteiro(a)</option>
             <option name="estadocivil" value="Casado(a)">Casado(a)</option>
             <option name="estadocivil" value="Viuvo(a)">Viuvo(a)</option>
             <option name="estadocivil" value="Divorciado(a)">Divorciado(a)</option>
             <option name="estadocivil" value="Separado Judicialmente">Separado Judicialmente</option>
         </fieldset>
-       </select>     
-       <input  type="radio" class="required"  id="mulher" name="genero" value="Homem">
-       <label for="homem">Homem</label><br>
-       <input  type="radio" class="required" id="mulher" name="genero" value="Mulher">
-       <label for="mulher">Mulher</label><br>
-       <input  type="radio" class="required"  id="outro" name="genero" value="outro">
-       <label for="outro">Outro</label>   
+       </select>           
+           <input  type="radio" class="required"  id="mulher" name="genero" value="Homem">
+           <label for="homem">Homem</label><br>
+           <input  type="radio" class="required" id="mulher" name="genero" value="Mulher">
+           <label for="mulher">Mulher</label><br>
+           <input  type="radio" class="required"  id="outro" name="genero" value="Outro">
+           <label for="outro">Outro</label>   
         </fieldset>
 
         <fieldset>

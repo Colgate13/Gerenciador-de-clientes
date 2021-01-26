@@ -1,6 +1,8 @@
 <?php
- 
-/* Valores recebidos do formulário  */
+ include("../utils/conection.php"); // caminho do seu arquivo de conexão ao banco de dados $consulta = "SELECT * FROM usuario"; $con = $mysqli->query($consulta) or die($mysqli->error); 
+
+
+ /* Valores recebidos do formulário  */
 $nome = $_POST['nome']; 
 $email = $_POST['email'];
 $telefone= $_POST['telefone'];
@@ -18,51 +20,77 @@ if($email == 'email') {
 
 } 
 
-	/* SENÃO HOUVER NENHUM ERRO, REALIZADO A GRAVAÇÃO NO BANCO DE DADOS */
-	if($erro == 0) {
-		$conn = new mysqli('localhost', 'root', '');
-		if ($conn->connect_error) {
-			die('Falha ao estabelecer uma conexão: '.$conn->connect_error);
-		} else {
-			/*
-			VERIFICO SE EXISTE UM BANCO DE DADOS.
-			CASO NÃO TENHA O BANCO DE DADOS, EU O CRIO.
-			*/
-			if(!$conn->select_db('users')) {
-				$conn->query('CREATE DATABASE IF NOT EXISTS users;');
-				$conn->select_db('users');
+	function validaCPF($cpf_this) {
+					
+		// Extrai somente os números
+		$cpf_this = preg_replace( '/[^0-9]/is', '', $cpf_this );
+		
+		// Verifica se foi informado todos os digitos corretamente
+		if (strlen($cpf_this) != 11) {
+			return false;
+		}
+
+		// Verifica se foi informada uma sequência de digitos repetidos. Ex: 111.111.111-11
+		if (preg_match('/(\d)\1{10}/', $cpf_this)) {
+			return false;
+		}
+
+		// Faz o calculo para validar o CPF
+		for ($t = 9; $t < 11; $t++) {
+			for ($d = 0, $c = 0; $c < $t; $c++) {
+				$d += $cpf_this[$c] * (($t + 1) - $c);
 			}
-			
-			/* 
-			FAÇO O MESMO COM A TABELA 
-			OBS: É POSSÍVEL CRIAR DE FORMA AUTOMÁTICA E BASEADO NO FORMULÁRIO, 
-			MAS ISSO EU DEIXAREI PARA FAZER EM OUTRAS POSTAGEM COM JQUERY
-			*/
-			$tabela = $conn->query('SHOW TABLES LIKE \'user_data\'');
-			if($tabela->num_rows == 0) {
-                $conn->query('CREATE table user_data(id INT(11) AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, telefone VARCHAR(255), cpf VARCHAR(255), estadocivil VARCHAR(255) NOT NULL, genero VARCHAR(10) NOT NULL, observacao VARCHAR(255) NOT NULL, PRIMARY KEY (id));');
+			$d = ((10 * $d) % 11) % 10;
+			if ($cpf_this[$c] != $d) {
+				return false;
 			}
+		}
+		return true;
+
+	}
+
+			$validar_cpf = validaCPF($cpf);
+
+				if(!$validar_cpf)
+				{
+					echo "<script>alert('Ocorreu um erro. CPF INVALIDO!');</script>";
+					echo "Cade o cpf VALIDO!";
+					header('Location: /public/views/index.html');
+					exit();
+				}
+
+				//Primeiro retira os espaços do começo e do final.
+				$cpf = trim($cpf);
+				//Substitui o ponto por nada
+				$cpf = str_replace(".", "", $cpf);
+				//Troca o traço por nada
+				$cpf = str_replace("-", "", $cpf);
+				//Troca o espaço por nada
+				$cpf = str_replace(" ", "", $cpf);
+				//Troca a barra por nada
+				$cpf = str_replace("-", "", $cpf);	
 			
 			$sql = "UPDATE user_data SET name='$nome', email='$email',telefone='$telefone' ,cpf='$cpf' , estadoCivil='$estadoCivil' , genero='$genero' , observacao='$observacao' WHERE id=$id";
             
-			if ($conn->query($sql) === TRUE) {
+			if ($connection->query($sql) === TRUE) {
                 echo "New record created successfully";
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
             
-            echo $id;    
-            echo $nome;
-            echo $email; 
-            echo $cpf ; 
-            echo $estadoCivil ; 
-            echo $genero ;
-            echo  $observacao ;
+            //echo $id;    
+            //echo $nome;
+			//echo $email; 
+			//echo $telefone;
+            //echo $cpf ; 
+            //echo $estadoCivil ; 
+            //echo $genero ;
+            //echo  $observacao ;
             /* SE TUDO ESTIVER OK, REDIRECIONO PARA UMA PÁGINA DE SUCESSO */
             header('location: /src/Cadastrar/sucesso.php');
             
-       }
-    }
+       
+    
 
 
 ?>
