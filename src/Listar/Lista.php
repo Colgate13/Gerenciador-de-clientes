@@ -4,13 +4,17 @@ include("../utils/conection.php"); // caminho do seu arquivo de conexão ao banc
 
 <!DOCTYPE html> 
   <html> 
-  <link rel="stylesheet" type="text/css" href="/public/css/lista.css" />
     <head> 
-      <meta charset="UTF-8"> 
-      <title>Tutorial</title> 
+      <link rel="stylesheet" type="text/css" href="/public/css/lista.css" />
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Lista de Úsuarios</title> 
     </head> 
-    <body> 
-      <table border="1" id="customers"> 
+    <body>
+    <div class="content">
+      <table border="1" id="customers" class="rTable">
+      <thead>
         <tr> 
           <th>ID</th>
           <th>Nome</th>
@@ -21,9 +25,12 @@ include("../utils/conection.php"); // caminho do seu arquivo de conexão ao banc
           <th>Gênero</th>
           <th>Observação</th>
           <th>Ações</th>
-
         </tr> 
+      </thead>
+
         <?php while($dado = $con->fetch_array()) { ?> 
+
+      <tbody>
         <tr> 
           <td><?php echo $dado['id']; ?></td>
           <td><?php echo $dado['name']; ?></td> 
@@ -39,7 +46,10 @@ include("../utils/conection.php"); // caminho do seu arquivo de conexão ao banc
             <a href="delet_user.php?id=<?php echo $dado['id']; ?>">Excluir</a> 
           </td> 
         </tr> 
+      </tbody>
+
         <?php } ?> 
-      </table> 
+      </table>
+      </div>
     </body> 
 </html>
