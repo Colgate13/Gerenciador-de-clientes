@@ -88,6 +88,7 @@
 <script>
     function check_form(){
     var cpf = document.getElementById('cpf').value;
+    var verificCheckBox = validarCheck();
     var inputs = document.getElementsByClassName('required');
     var len = inputs.length;
     var valid = true;
@@ -102,6 +103,11 @@
         alert('Por favor preencha com um CPF VALIDO.');    
         document.getElementById('cpf').style.backgroundColor = 'red';
         return false; 
+    }if(!verificCheckBox)
+    {
+        alert("Escolha um Genero!");
+        return false;
+        
     }else
     {
         return true; 
@@ -109,6 +115,19 @@
 
     
 }
+
+function validarCheck()
+{
+    var option = document.getElementsByName('genero');
+
+    if ((option[0].checked || option[1].checked || option[2].checked) ) {
+        return true;
+
+    }else{
+        return false;
+    }
+}
+
 function validarCPF(cpf) {	
 	cpf = cpf.replace(/[^\d]+/g,'');	
 	if(cpf == '') return false;	
