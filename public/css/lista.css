@@ -1,4 +1,7 @@
-/*#customers {
+td{
+  word-wrap:break-word;
+}
+#customers {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -19,19 +22,19 @@
     text-align: left;
     background-color: black;
     color: white;
-  } */
+  } 
 
   *{margin:0; padding: 0; box-sizing: border-box;}
+  
+  .content{display:flex; margin: auto;}
+  
+  .rTable{width: 100%; text-align: center;}
+  .rTable thead{background: black; font-weight: bold; color:#fff;}
+  .rTable tbody tr:nth-child(2n){background: #ccc;}
+  .rTable th , .rTable td{padding: 7px 0;}
+  
 
-.content{display:flex; margin: auto;}
-
-.rTable{width: 100%; text-align: center;}
-    .rTable thead{background: black; font-weight: bold; color:#fff;}
-    .rTable tbody tr:nth-child(2n){background: #ccc;}
-    .rTable th , .rTable td{padding: 7px 0;}
-
-
-@media screen and (max-width: 438px){
+  @media screen and (max-width: 438px){
     .content{width: 94%;}
     th {
       font-size: 1px;
@@ -46,15 +49,15 @@
     .rTable th , .rTable td{padding: 0px;}
     .rTable thead{display:none;}
     .rTable tbody td{display: flex; flex-direction: column; }
-}
-tr td{
-  white-space: pre-wrap;
-}
-@media only screen and (min-width: 1200px){
+  }
+  
+  @media only screen and (min-width: 120px){
     .content{width:100%;}
-    .rTable tbody tr td:nth-child(1){width:10%;}
+    
+    /*.rTable tbody tr td:nth-child(1){width:10%;}
     .rTable tbody tr td:nth-child(2){width:30%;}
     .rTable tbody tr td:nth-child(3){width:20%;}
     .rTable tbody tr td:nth-child(4){width:10%;}
     .rTable tbody tr td:nth-child(5){width:30%;}
-}
+    */
+  }
