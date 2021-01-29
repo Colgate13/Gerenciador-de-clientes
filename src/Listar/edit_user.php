@@ -70,7 +70,7 @@ $conn = $connection->query($sql);
           <input  type="email" name="email" id="email" value="<?php echo $data_this['email']; ?>" >
 
           <label>Telefone</label>      
-          <input  type="text" name="telefone" id="telefone" value="<?php echo Mask("###.###.###-##", $data_this['telefone']); ?>" placeholder="Telefone:" class="telefone">
+          <input  type="text" name="telefone" id="telefone" value="<?php echo Mask("(##) #####-####", $data_this['telefone']); ?>" placeholder="Telefone:" class="telefone">
        
           <label>CPF </label>
           <input  type="text" name="cpf"  value="<?php echo Mask("###.###.###-##", $data_this['cpf']); ?>" onkeypress="formatar(this,'000.000.000-00')" id="cpf">

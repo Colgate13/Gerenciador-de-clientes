@@ -48,7 +48,13 @@ function Mask($mask,$str){
           <td><?php echo $dado['id']; ?></td>
           <td><?php echo $dado['name']; ?></td> 
           <td><?php echo $dado['email']; ?></td>
-          <td><?php echo Mask("(##)#####-####", $dado['telefone']); ?></td> 
+          <td><?php if(strlen($dado['telefone']) == 10)
+          {
+            echo Mask("(##)####-####", $dado['telefone']);
+            }else
+            { 
+              echo Mask("(##)#####-####", $dado['telefone']);
+              } ?></td> 
           <td><?php echo Mask("###.###.###-##", $dado['cpf']); ?></td> 
           <td><?php echo $dado['estadocivil']; ?></td> 
           <td><?php echo $dado['genero']; ?></td> 
