@@ -68,6 +68,17 @@ if($email == 'email') {
 			//Troca a barra por nada
 			$cpf = str_replace("-", "", $cpf);	
 
+						//Primeiro retira os espaços do começo e do final.
+						$telefone = trim($telefone);
+						//Substitui o ponto por nada
+						$telefone = str_replace("(", "", $telefone);
+						//Troca o traço por nada
+						$telefone = str_replace(")", "", $telefone);
+						//Troca o espaço por nada
+						$telefone = str_replace(" ", "", $telefone);
+						//Troca a barra por nada
+						$telefone = str_replace("-", "", $telefone);
+
 			$sql = "INSERT INTO user_data(name, email, telefone, cpf, estadocivil, genero, observacao ) VALUES('$nome', '$email' , '$telefone', '$cpf' , '$estadoCivil' , '$genero' ,'$observacao')";
 
 			if ($connection->query($sql) === TRUE) {

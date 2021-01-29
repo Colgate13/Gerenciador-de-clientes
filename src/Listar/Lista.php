@@ -1,5 +1,18 @@
 <?php 
 include("../utils/conection.php"); // caminho do seu arquivo de conexão ao banco de dados $consulta = "SELECT * FROM usuario"; $con = $mysqli->query($consulta) or die($mysqli->error); 
+
+
+function Mask($mask,$str){
+
+  $str = str_replace(" ","",$str);
+
+  for($i=0;$i<strlen($str);$i++){
+      $mask[strpos($mask,"#")] = $str[$i];
+  }
+
+  return $mask;
+
+}
 ?> 
 
 <!DOCTYPE html> 
@@ -35,15 +48,15 @@ include("../utils/conection.php"); // caminho do seu arquivo de conexão ao banc
           <td><?php echo $dado['id']; ?></td>
           <td><?php echo $dado['name']; ?></td> 
           <td><?php echo $dado['email']; ?></td>
-          <td><?php echo $dado['telefone']; ?></td> 
-          <td><?php echo $dado['cpf']; ?></td> 
+          <td><?php echo Mask("(##)#####-####", $dado['telefone']); ?></td> 
+          <td><?php echo Mask("###.###.###-##", $dado['cpf']); ?></td> 
           <td><?php echo $dado['estadocivil']; ?></td> 
           <td><?php echo $dado['genero']; ?></td> 
           <td><?php echo $dado['observacao']; ?></td> 
 
           <td> 
             <a href="edit_user.php?id=<?php echo $dado['id']; ?>">Editar |</a> 
-            <a href="delet_user.php?id=<?php echo $dado['id']; ?>">Excluir |</a> 
+            <a onClick="return confirmacao(<?php echo $dado["id"]; ?>);" href="#">Excluir |</button> 
             <a href="/index.html"> Home </a>
           </td> 
         </tr> 
@@ -53,4 +66,13 @@ include("../utils/conection.php"); // caminho do seu arquivo de conexão ao banc
       </table>
       </div>
     </body> 
+    <script>
+    function confirmacao(id)
+    {
+      if(window.confirm('deseja apagar?')){
+        window.location.href = "/src/Listar/delet_user.php?id="+id;
+
+      }
+    }
+     </script>
 </html>

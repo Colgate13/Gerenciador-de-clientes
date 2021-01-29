@@ -44,6 +44,18 @@ $conn = $connection->query($sql);
                         $data_this['observacao'] = $dado['observacao'];
                 }
 
+
+                function Mask($mask,$str){
+
+                    $str = str_replace(" ","",$str);
+                
+                    for($i=0;$i<strlen($str);$i++){
+                        $mask[strpos($mask,"#")] = $str[$i];
+                    }
+                
+                    return $mask;
+                
+                }
                         ?> 
                                
 
@@ -58,10 +70,10 @@ $conn = $connection->query($sql);
           <input  type="email" name="email" id="email" value="<?php echo $data_this['email']; ?>" >
 
           <label>Telefone</label>      
-          <input  type="text" name="telefone" id="telefone" value="<?php echo $data_this['telefone'];  ?>" placeholder="Telefone:" class="telefone">
+          <input  type="text" name="telefone" id="telefone" value="<?php echo Mask("###.###.###-##", $data_this['telefone']); ?>" placeholder="Telefone:" class="telefone">
        
           <label>CPF </label>
-          <input  type="text" name="cpf"  value="<?php echo $data_this['cpf']; ?>" onkeypress="formatar(this,'000.000.000-00')" id="cpf">
+          <input  type="text" name="cpf"  value="<?php echo Mask("###.###.###-##", $data_this['cpf']); ?>" onkeypress="formatar(this,'000.000.000-00')" id="cpf">
         
           <label>Estado Cívil</label>   
           <select  name="estadocivil" >
