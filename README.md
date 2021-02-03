@@ -34,6 +34,7 @@ Validação CPF, mascara CPF, mascara Telefone(fixo e telefone movel), Outra val
 <h1> COMO USAR? </h1>
 1 - Install Xammp;
 2 - Ir no diretorio do xammp, na pasta htdocs, clocar o repositorio para essa pasta
+
 ```
 3 - Na pasta htdocs <h3> git clone https://github.com/Colgate13/Gerenciador-de-clientes  </h3>
 ```
