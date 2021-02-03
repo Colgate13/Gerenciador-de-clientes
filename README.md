@@ -33,6 +33,7 @@ Validação CPF, mascara CPF, mascara Telefone(fixo e telefone movel), Outra val
 
 <h1> COMO USAR? </h1>
 1 - Install Xammp;
+<br>
 2 - Ir no diretorio do xammp, na pasta htdocs, clocar o repositorio para essa pasta
 
 ```
