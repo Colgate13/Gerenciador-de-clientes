@@ -35,9 +35,8 @@ Validação CPF, mascara CPF, mascara Telefone(fixo e telefone movel), Outra val
 1 - Install Xammp;
 <br>
 2 - Ir no diretorio do xammp, na pasta htdocs, clocar o repositorio para essa pasta
-
+3 - Na pasta htdocs
 ```
-3 - Na pasta htdocs 
 git clone https://github.com/Colgate13/Gerenciador-de-clientes  
 ```
 4 - Apertar o botão "start" para o apache e para o mysql no xammp
